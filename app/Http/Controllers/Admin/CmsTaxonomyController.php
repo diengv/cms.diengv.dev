@@ -50,14 +50,15 @@ class CmsTaxonomyController extends Controller
             $table->editColumn('slug', function ($row) {
                 return $row->slug ? $row->slug : '';
             });
-            $table->editColumn('hierarchical', function ($row) {
-                return '<input type="checkbox" disabled ' . ($row->hierarchical ? 'checked' : null) . '>';
-            });
             $table->addColumn('image_name', function ($row) {
                 return $row->image ? $row->image->name : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'hierarchical', 'image']);
+            $table->editColumn('hierarchical', function ($row) {
+                return $row->hierarchical ? CmsTaxonomy::HIERARCHICAL_RADIO[$row->hierarchical] : '';
+            });
+
+            $table->rawColumns(['actions', 'placeholder', 'image']);
 
             return $table->make(true);
         }

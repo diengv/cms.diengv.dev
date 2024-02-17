@@ -31,10 +31,10 @@
                         {{ trans('cruds.cmsTaxonomy.fields.slug') }}
                     </th>
                     <th>
-                        {{ trans('cruds.cmsTaxonomy.fields.hierarchical') }}
+                        {{ trans('cruds.cmsTaxonomy.fields.image') }}
                     </th>
                     <th>
-                        {{ trans('cruds.cmsTaxonomy.fields.image') }}
+                        {{ trans('cruds.cmsTaxonomy.fields.hierarchical') }}
                     </th>
                     <th>
                         &nbsp;
@@ -95,8 +95,8 @@
 { data: 'id', name: 'id' },
 { data: 'name', name: 'name' },
 { data: 'slug', name: 'slug' },
-{ data: 'hierarchical', name: 'hierarchical' },
 { data: 'image_name', name: 'image.name' },
+{ data: 'hierarchical', name: 'hierarchical' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

@@ -31,10 +31,10 @@
                                 {{ trans('cruds.cmsTaxonomy.fields.slug') }}
                             </th>
                             <th>
-                                {{ trans('cruds.cmsTaxonomy.fields.hierarchical') }}
+                                {{ trans('cruds.cmsTaxonomy.fields.image') }}
                             </th>
                             <th>
-                                {{ trans('cruds.cmsTaxonomy.fields.image') }}
+                                {{ trans('cruds.cmsTaxonomy.fields.hierarchical') }}
                             </th>
                             <th>
                                 &nbsp;
@@ -57,11 +57,10 @@
                                     {{ $cmsTaxonomy->slug ?? '' }}
                                 </td>
                                 <td>
-                                    <span style="display:none">{{ $cmsTaxonomy->hierarchical ?? '' }}</span>
-                                    <input type="checkbox" disabled="disabled" {{ $cmsTaxonomy->hierarchical ? 'checked' : '' }}>
+                                    {{ $cmsTaxonomy->image->name ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $cmsTaxonomy->image->name ?? '' }}
+                                    {{ App\Models\CmsTaxonomy::HIERARCHICAL_RADIO[$cmsTaxonomy->hierarchical] ?? '' }}
                                 </td>
                                 <td>
                                     @can('cms_taxonomy_show')

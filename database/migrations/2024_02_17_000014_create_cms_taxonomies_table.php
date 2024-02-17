@@ -13,7 +13,7 @@ class CreateCmsTaxonomiesTable extends Migration
             $table->string('name');
             $table->string('slug')->nullable();
             $table->longText('description')->nullable();
-            $table->boolean('hierarchical')->default(0);
+            $table->string('hierarchical');
             $table->timestamps();
             $table->softDeletes();
         });

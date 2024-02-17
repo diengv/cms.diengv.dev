@@ -35,16 +35,6 @@
                 <span class="help-block">{{ trans('cruds.cmsTaxonomy.fields.description_helper') }}</span>
             </div>
             <div class="form-group">
-                <div class="form-check {{ $errors->has('hierarchical') ? 'is-invalid' : '' }}">
-                    <input class="form-check-input" type="checkbox" name="hierarchical" id="hierarchical" value="1" {{ $cmsTaxonomy->hierarchical || old('hierarchical', 0) === 1 ? 'checked' : '' }} required>
-                    <label class="required form-check-label" for="hierarchical">{{ trans('cruds.cmsTaxonomy.fields.hierarchical') }}</label>
-                </div>
-                @if($errors->has('hierarchical'))
-                    <span class="text-danger">{{ $errors->first('hierarchical') }}</span>
-                @endif
-                <span class="help-block">{{ trans('cruds.cmsTaxonomy.fields.hierarchical_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label for="image_id">{{ trans('cruds.cmsTaxonomy.fields.image') }}</label>
                 <select class="form-control select2 {{ $errors->has('image') ? 'is-invalid' : '' }}" name="image_id" id="image_id">
                     @foreach($images as $id => $entry)
@@ -55,6 +45,19 @@
                     <span class="text-danger">{{ $errors->first('image') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.cmsTaxonomy.fields.image_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required">{{ trans('cruds.cmsTaxonomy.fields.hierarchical') }}</label>
+                @foreach(App\Models\CmsTaxonomy::HIERARCHICAL_RADIO as $key => $label)
+                    <div class="form-check {{ $errors->has('hierarchical') ? 'is-invalid' : '' }}">
+                        <input class="form-check-input" type="radio" id="hierarchical_{{ $key }}" name="hierarchical" value="{{ $key }}" {{ old('hierarchical', $cmsTaxonomy->hierarchical) === (string) $key ? 'checked' : '' }} required>
+                        <label class="form-check-label" for="hierarchical_{{ $key }}">{{ $label }}</label>
+                    </div>
+                @endforeach
+                @if($errors->has('hierarchical'))
+                    <span class="text-danger">{{ $errors->first('hierarchical') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.cmsTaxonomy.fields.hierarchical_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

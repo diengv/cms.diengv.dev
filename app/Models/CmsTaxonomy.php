@@ -20,13 +20,18 @@ class CmsTaxonomy extends Model
         'deleted_at',
     ];
 
+    public const HIERARCHICAL_RADIO = [
+        'yes' => 'yes',
+        'no'  => 'no',
+    ];
+
     protected $fillable = [
         'name',
         'slug',
         'description',
-        'hierarchical',
         'created_at',
         'image_id',
+        'hierarchical',
         'updated_at',
         'deleted_at',
         'team_id',

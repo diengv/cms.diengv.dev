@@ -283,8 +283,6 @@ return [
             'name_helper'         => ' ',
             'description'         => 'Description',
             'description_helper'  => ' ',
-            'hierarchical'        => 'Hierarchical',
-            'hierarchical_helper' => ' ',
             'created_at'          => 'Created at',
             'created_at_helper'   => ' ',
             'updated_at'          => 'Updated at',
@@ -297,6 +295,8 @@ return [
             'slug_helper'         => ' ',
             'image'               => 'Image',
             'image_helper'        => ' ',
+            'hierarchical'        => 'Hierarchical',
+            'hierarchical_helper' => ' ',
         ],
     ],
     'cmsTerm' => [

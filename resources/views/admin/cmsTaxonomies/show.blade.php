@@ -49,18 +49,18 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.cmsTaxonomy.fields.hierarchical') }}
-                        </th>
-                        <td>
-                            <input type="checkbox" disabled="disabled" {{ $cmsTaxonomy->hierarchical ? 'checked' : '' }}>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.cmsTaxonomy.fields.image') }}
                         </th>
                         <td>
                             {{ $cmsTaxonomy->image->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.cmsTaxonomy.fields.hierarchical') }}
+                        </th>
+                        <td>
+                            {{ App\Models\CmsTaxonomy::HIERARCHICAL_RADIO[$cmsTaxonomy->hierarchical] ?? '' }}
                         </td>
                     </tr>
                 </tbody>
